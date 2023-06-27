@@ -9,9 +9,9 @@ import com.google.android.material.tabs.TabLayout
 
 
 class MainActivity : AppCompatActivity() {
-    private var toolbar: Toolbar? = null
-    private var tabLayout: TabLayout? = null
-    private var viewPager: ViewPager2? = null
+    private lateinit var toolbar: Toolbar
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPager: ViewPager2
     private var uiManager: MainActivityUIManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         tabLayout = findViewById<View>(R.id.tabs) as TabLayout
         viewPager = findViewById<View>(R.id.viewpager) as ViewPager2
 
-        uiManager = MainActivityUIManager(this, toolbar!!, tabLayout!!, viewPager!!)
+        uiManager = MainActivityUIManager(this, toolbar, tabLayout, viewPager)
         uiManager?.setupViewPager()
     }
 }
